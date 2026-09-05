@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6A6F7B"/>
+    </marker>
+    <marker id="arrowAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3538CD"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="620" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="30" y="36" font-size="18" font-weight="700" fill="#14161B">DisputeShield AI — Agent Pipeline</text>
+  <text x="30" y="56" font-size="12" fill="#4B4F58">Evidence → Score → Policy Gate → Bounded Action</text>
+
+  <!-- Row 1: intake pipeline -->
+  <g font-size="12.5">
+    <!-- Webhook -->
+    <rect x="30" y="90" width="150" height="56" rx="8" fill="#F7F7F9" stroke="#E4E5EA"/>
+    <text x="105" y="114" text-anchor="middle" font-weight="600" fill="#14161B">Razorpay Webhook</text>
+    <text x="105" y="130" text-anchor="middle" fill="#4B4F58" font-size="10.5">dispute.created</text>
+
+    <line x1="180" y1="118" x2="222" y2="118" stroke="#6A6F7B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <!-- Load dispute -->
+    <rect x="224" y="90" width="150" height="56" rx="8" fill="#F7F7F9" stroke="#E4E5EA"/>
+    <text x="299" y="114" text-anchor="middle" font-weight="600" fill="#14161B">Load Dispute</text>
+    <text x="299" y="130" text-anchor="middle" fill="#4B4F58" font-size="10.5">amount, deadline</text>
+
+    <line x1="374" y1="118" x2="416" y2="118" stroke="#6A6F7B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <!-- Retrieve evidence -->
+    <rect x="418" y="90" width="170" height="56" rx="8" fill="#F7F7F9" stroke="#E4E5EA"/>
+    <text x="503" y="114" text-anchor="middle" font-weight="600" fill="#14161B">Retrieve Evidence</text>
+    <text x="503" y="130" text-anchor="middle" fill="#4B4F58" font-size="10.5">orders · tracking · chat</text>
+
+    <line x1="588" y1="118" x2="630" y2="118" stroke="#6A6F7B" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <!-- Score -->
+    <rect x="632" y="90" width="150" height="56" rx="8" fill="#EEEEFB" stroke="#3538CD"/>
+    <text x="707" y="114" text-anchor="middle" font-weight="600" fill="#3538CD">ML Score</text>
+    <text x="707" y="130" text-anchor="middle" fill="#3538CD" font-size="10.5">contestability</text>
+  </g>
+
+  <line x1="707" y1="146" x2="707" y2="188" stroke="#3538CD" stroke-width="1.5" marker-end="url(#arrowAccent)"/>
+
+  <!-- Policy Gate (diamond, the centerpiece) -->
+  <g>
+    <polygon points="707,192 812,246 707,300 602,246" fill="#14161B" stroke="#14161B"/>
+    <text x="707" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">POLICY</text>
+    <text x="707" y="257" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">GATE</text>
+  </g>
+  <text x="707" y="322" text-anchor="middle" font-size="10.5" fill="#4B4F58" font-style="italic">deterministic · not an LLM call</text>
+
+  <!-- Four outcomes fanning down -->
+  <g font-size="12">
+    <!-- AUTO_SUBMIT -->
+    <line x1="660" y1="288" x2="180" y2="400" stroke="#0F7A47" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="30" y="400" width="180" height="56" rx="8" fill="#E8F6EE" stroke="#0F7A47"/>
+    <text x="120" y="424" text-anchor="middle" font-weight="700" fill="#0F7A47">AUTO_SUBMIT</text>
+    <text x="120" y="440" text-anchor="middle" fill="#0F7A47" font-size="10.5">~3.4% of disputes</text>
+
+    <!-- DRAFT_FOR_REVIEW -->
+    <line x1="685" y1="298" x2="420" y2="400" stroke="#B7791F" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="330" y="400" width="180" height="56" rx="8" fill="#FDF3DF" stroke="#B7791F"/>
+    <text x="420" y="424" text-anchor="middle" font-weight="700" fill="#B7791F">DRAFT_FOR_REVIEW</text>
+    <text x="420" y="440" text-anchor="middle" fill="#B7791F" font-size="10.5">confidence ≠ autonomy</text>
+
+    <!-- ESCALATE -->
+    <line x1="730" y1="298" x2="720" y2="400" stroke="#C2410C" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="630" y="400" width="180" height="56" rx="8" fill="#FDEEE6" stroke="#C2410C"/>
+    <text x="720" y="424" text-anchor="middle" font-weight="700" fill="#C2410C">ESCALATE</text>
+    <text x="720" y="440" text-anchor="middle" fill="#C2410C" font-size="10.5">deadline / risk trigger</text>
+
+    <!-- DO_NOT_CONTEST -->
+    <line x1="755" y1="288" x2="1020" y2="400" stroke="#B42318" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="930" y="400" width="200" height="56" rx="8" fill="#FDECEA" stroke="#B42318"/>
+    <text x="1030" y="424" text-anchor="middle" font-weight="700" fill="#B42318">DO_NOT_CONTEST</text>
+    <text x="1030" y="440" text-anchor="middle" fill="#B42318" font-size="10.5">missing/conflicting evidence</text>
+  </g>
+
+  <!-- Human review branch off DRAFT -->
+  <line x1="420" y1="456" x2="420" y2="490" stroke="#B7791F" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="330" y="492" width="180" height="46" rx="8" fill="#F7F7F9" stroke="#E4E5EA"/>
+  <text x="420" y="520" text-anchor="middle" font-size="12" font-weight="600" fill="#14161B">Human Approval</text>
+
+  <!-- Razorpay adapter for the submit path -->
+  <line x1="120" y1="456" x2="120" y2="490" stroke="#0F7A47" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="30" y="492" width="180" height="46" rx="8" fill="#F7F7F9" stroke="#E4E5EA"/>
+  <text x="120" y="516" text-anchor="middle" font-size="11.5" font-weight="600" fill="#14161B">Razorpay Adapter</text>
+  <text x="120" y="530" text-anchor="middle" font-size="9.5" fill="#4B4F58">live test-mode / simulator</text>
+
+  <!-- Everything funnels to audit log -->
+  <line x1="120" y1="538" x2="600" y2="576" stroke="#6A6F7B" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="420" y1="538" x2="600" y2="576" stroke="#6A6F7B" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="720" y1="456" x2="600" y2="576" stroke="#6A6F7B" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <line x1="1030" y1="456" x2="600" y2="576" stroke="#6A6F7B" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+  <rect x="400" y="576" width="400" height="34" rx="17" fill="#0D0F13"/>
+  <text x="600" y="598" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#7DD3A0">AUDIT_LOG — every decision, always</text>
+</svg>

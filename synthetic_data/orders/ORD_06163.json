@@ -1,0 +1,9 @@
+{
+  "order_id": "ORD_06163",
+  "customer_id": "CUST_0002",
+  "amount": 1290.15,
+  "currency": "INR",
+  "product": "Wireless Earbuds Pro",
+  "order_date": "2026-06-24",
+  "status": "shipped"
+}

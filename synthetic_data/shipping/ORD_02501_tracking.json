@@ -1,0 +1,8 @@
+{
+  "order_id": "ORD_02501",
+  "carrier": "Delhivery",
+  "tracking_number": "TRK111607483",
+  "status": "in_transit",
+  "delivered_signature": false,
+  "delivered_date": "2026-07-06"
+}

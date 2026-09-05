@@ -1,0 +1,13 @@
+{
+  "precision": 0.6557,
+  "recall": 0.6557,
+  "f1": 0.6557,
+  "accuracy": 0.65,
+  "confusion_matrix": {
+    "tp": 40,
+    "fp": 21,
+    "tn": 38,
+    "fn": 21
+  },
+  "test_size": 120
+}

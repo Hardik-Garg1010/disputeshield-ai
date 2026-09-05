@@ -1,0 +1,8 @@
+{
+  "order_id": "ORD_05128",
+  "carrier": "Delhivery",
+  "tracking_number": "TRK423545556",
+  "status": "in_transit",
+  "delivered_signature": false,
+  "delivered_date": "2026-07-04"
+}

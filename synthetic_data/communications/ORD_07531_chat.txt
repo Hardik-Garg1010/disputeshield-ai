@@ -1,0 +1,3 @@
+Customer: Hi, checking on order ORD_07531
+Support: It shows delivered on 2026-07-28. Did you receive it?
+Customer: Yes got it, thanks!

@@ -1,0 +1,63 @@
+{
+  "chosen_model": "logistic_regression_calibrated",
+  "validation": {
+    "logistic_regression_calibrated": {
+      "precision": 0.6127,
+      "recall": 0.5091,
+      "f1": 0.5561,
+      "accuracy": 0.6413,
+      "roc_auc": 0.6705,
+      "confusion_matrix": {
+        "tp": 337,
+        "fp": 213,
+        "tn": 625,
+        "fn": 325
+      },
+      "test_size": 1500
+    },
+    "xgboost_calibrated": {
+      "precision": 0.6052,
+      "recall": 0.4909,
+      "f1": 0.5421,
+      "accuracy": 0.634,
+      "roc_auc": 0.669,
+      "confusion_matrix": {
+        "tp": 325,
+        "fp": 212,
+        "tn": 626,
+        "fn": 337
+      },
+      "test_size": 1500
+    }
+  },
+  "final_test": {
+    "precision": 0.6035,
+    "recall": 0.5242,
+    "f1": 0.561,
+    "accuracy": 0.638,
+    "roc_auc": 0.6807,
+    "confusion_matrix": {
+      "tp": 347,
+      "fp": 228,
+      "tn": 610,
+      "fn": 315
+    },
+    "test_size": 1500
+  },
+  "features": [
+    "delivery_confirmed",
+    "tracking_available",
+    "customer_acknowledged_delivery",
+    "delivery_signature",
+    "refund_issued",
+    "evidence_count",
+    "customer_previous_disputes"
+  ],
+  "split": {
+    "train": 7000,
+    "validation": 1500,
+    "test": 1500,
+    "total": 10000
+  },
+  "selection_rule": "Choose by validation ROC-AUC; evaluate the selected model once on the held-out test set; probabilities are isotonic-calibrated."
+}

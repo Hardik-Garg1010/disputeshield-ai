@@ -1,0 +1,9 @@
+{
+  "order_id": "ORD_03333",
+  "customer_id": "CUST_0105",
+  "amount": 5935.87,
+  "currency": "INR",
+  "product": "Smart Home Hub",
+  "order_date": "2026-06-18",
+  "status": "shipped"
+}

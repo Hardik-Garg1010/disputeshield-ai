@@ -1,0 +1,10 @@
+{
+  "delivery_confirmed": 0.7939,
+  "tracking_available": 0.3408,
+  "customer_acknowledged_delivery": 0.5419,
+  "delivery_signature": -0.0631,
+  "refund_issued": -0.7507,
+  "evidence_count": 0.4034,
+  "customer_previous_disputes": -0.1617,
+  "intercept": -1.0586
+}
